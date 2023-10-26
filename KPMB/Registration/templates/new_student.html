@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Student</title>
+</head>
+<body>
+    <h1>Kolej Professional Mara Beranang</h1>
+    <form action="" method="post">
+    {%csrf_token%}
+
+        <h2>New Student</h2>
+        ID <input type="text" name="s_id"><br><br>
+        Name <input type="text" name="s_name"><br><br>
+        Address <input type="text" name="s_add"><br><br>
+        Phone <input type="Phone" name="s_phone"><br><br>
+        Course 
+        <select name="s_course" id="">
+            <option value="">Select One</option>
+
+            {% for data in allcourse %}
+            <option value="{{data.code}}">{{data.description}}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="SAVE">
+    </form>
+
+    
+    <a href="{% url 'index' %}">Home</a>
+
+</body>
+</html>
